@@ -1,14 +1,17 @@
-import React from 'react';
-import { Admin, Resource} from 'react-admin';
-import EmployeesList from './components/EmployeesList';
-import simpleRestProvider from 'ra-data-simple-rest';
+import axios from 'axios';
+import {useState,useEffect} from 'react';
+function App(){
+  const [data,setData]=useState([]);
+  useEffect(() =>{
+    loadUserData();
+  }, []);
 
-const dataProvider = simpleRestProvider('http://localhost:3001/getUsers');
-
-const App = () => (
-    <Admin dataProvider={dataProvider}>
-        <Resource name="Users" list={EmployeesList} />
-    </Admin>
-);
-
+  const loadUserData=async () => {
+    return await axios
+    .get("http://localhost:3001/getUsers")
+    .then((response)=>setData(response.data))
+    .catch((err)=>console.log(err));
+  };
+  console.log("data",data);
+};
 export default App;
