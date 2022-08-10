@@ -1,17 +1,31 @@
-import axios from 'axios';
-import {useState,useEffect} from 'react';
-function App(){
-  const [data,setData]=useState([]);
-  useEffect(() =>{
-    loadUserData();
-  }, []);
+import './App.css';
+import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap.bundle.min.js";
+import Navbar from './components/Navbar';
+import Home from './components/Home';
+import AddUser from './components/AddUser';
+import Edit from './components/Edit';
+// import Details from './components/Details';
+import {BrowserRouter as Router,Routes ,Route } from 'react-router-dom';
 
-  const loadUserData=async () => {
-    return await axios
-    .get("http://localhost:3001/getUsers")
-    .then((response)=>setData(response.data))
-    .catch((err)=>console.log(err));
-  };
-  console.log("data",data);
-};
+
+
+
+function App() {
+  return (
+   <Router>
+    <Navbar />
+    <Routes>
+      <Route  path="/" element={<Home/>} />
+      <Route  path="/register" element={<AddUser/>} />
+       <Route path="/edit/:id" element={<Edit/>} />
+      {/* <Route exact path="/view/:id" component={Details} /> 
+      <Route path="*" element={<Navigate to="/"/>}/> */}
+      </Routes>
+    </Router>
+
+  );
+}
+
 export default App;
