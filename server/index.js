@@ -30,16 +30,6 @@ app.post("/register", async (req, res) => {
   res.json(user);
 });
 
-// app.post('/register', function(req, res) {
-//   const employee = {
-//     firstname: req.body.firstname,
-//     lastname: req.body.lastname,
-//     email: req.body.email,
-//     mobile:req.body.mobile,
-//   };
-//   success.push(employee);
-//   console.log(success);
-// });
 
 app.patch("/updateuser/:id",async(req,res)=>{
   try {

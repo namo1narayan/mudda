@@ -13,7 +13,18 @@ class EditEmployee extends Component {
       firstName: '',
       lastName: '',
       email: '',
-      mobile: ''
+      mobile: '',
+      gender: "",
+        designation: "",
+        doj: "",
+        rm: "",
+        salary: "",
+        ec: "",
+        location: "",
+        state: "",
+        country: "",
+        department: "",
+        deletedAt: ""
     }
   }
 
@@ -29,7 +40,18 @@ class EditEmployee extends Component {
           firstName: response.data.firstName,
           lastName: response.data.lastName,
           email: response.data.email,
-          phone: response.data.phone
+          mobile: response.data.mobile,
+          gender: response.data.gender,
+          designation: response.data.designation,
+          doj: response.data.doj,
+          rm: response.data.rm,
+          salary: response.data.salary,
+          ecode: response.data.ecode,
+          location: response.data.location,
+          rajya: response.data.rajya,
+          country: response.data.country,
+          department: response.data.department,
+          deletedAt: response.data.deletedAt
         });
       })
       .catch((error) => {
@@ -44,12 +66,23 @@ class EditEmployee extends Component {
   // To update the record on submit
   handleSubmit = (event) => {
     event.preventDefault();
-    const { firstName, lastName, email, phone } = this.state;
+    const { firstName, lastName, email, mobile,gender,designation,doj,rm,salary,ecode,location,rajya,country,department,deletedAt } = this.state;
     axios.post('http://localhost:3001/updateuser/:id' + this.props.match.params.id, {
       firstName: firstName,
       lastName: lastName,
       email: email,
-      phone: phone,
+      mobile: mobile,
+      gender: gender,
+      designation: designation,
+      doj: doj,
+      rm:rm,
+      salary: salary,
+      ecode: ecode,
+      location: location,
+      rajya: rajya,
+      country: country,
+      department: department,
+      deletedAt: deletedAt
     })
       .then((response) => {
         console.log(response);
@@ -99,7 +132,7 @@ class EditEmployee extends Component {
           </label>
           <br />
           <label>
-            Phone No
+            Mobile No
             <input
               name="mobile"
               type="text"
@@ -109,6 +142,128 @@ class EditEmployee extends Component {
             />
           </label>
           <br />
+          <label>
+            Gender
+            <input
+              name="gender"
+              type="text"
+              value={this.state.gender}
+              onChange={this.handleChange}
+              className="form-control"
+            />
+          </label>
+          <br />
+          <label>
+            Designation
+            <input
+              name="designation"
+              type="text"
+              value={this.state.designation}
+              onChange={this.handleChange}
+              className="form-control"
+            />
+          </label>
+          <br />
+          <label>
+            Date Of Joining
+            <input
+              name="doj"
+              type="date"
+              value={this.state.date}
+              onChange={this.handleChange}
+              className="form-control"
+            />
+          </label>
+          <br />
+          <label>
+            Reporting Manager
+            <input
+              name="rm"
+              type="text"
+              value={this.state.rm}
+              onChange={this.handleChange}
+              className="form-control"
+            />
+          </label>
+          <br />
+          <label>
+            Salary
+            <input
+              name="salary"
+              type="number"
+              value={this.state.salary}
+              onChange={this.handleChange}
+              className="form-control"
+            />
+          </label>
+          <br />
+          <label>
+            Employee Code
+            <input
+              name="ecode"
+              type="number"
+              value={this.state.ecode}
+              onChange={this.handleChange}
+              className="form-control"
+            />
+          </label>
+          <br />
+          <label>
+            Location
+            <input
+              name="location"
+              type="text"
+              value={this.state.location}
+              onChange={this.handleChange}
+              className="form-control"
+            />
+          </label>
+          <br />
+          <label>
+            State
+            <input
+              name="rajya"
+              type="text"
+              value={this.state.rajya}
+              onChange={this.handleChange}
+              className="form-control"
+            />
+          </label>
+          <br />
+          <label>
+            Country
+            <input
+              name="country"
+              type="text"
+              value={this.state.country}
+              onChange={this.handleChange}
+              className="form-control"
+            />
+          </label>
+          <br />
+          <label>
+            Department
+            <input
+              name="department"
+              type="text"
+              value={this.state.department}
+              onChange={this.handleChange}
+              className="form-control"
+            />
+          </label>
+          <br />
+          <label>
+            Deleted At
+            <input
+              name="deletedAt"
+              type="date"
+              value={this.state.deletedAt}
+              onChange={this.handleChange}
+              className="form-control"
+            />
+          </label>
+          <br />
+
           <input
             type="submit"
             value="submit"
