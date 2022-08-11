@@ -23,7 +23,7 @@ class EditEmployee extends Component {
 
   // To get employee based on ID
   getEmployeeById() {
-    axios.get('http://localhost:4000/employees/editEmployee/' + this.props.match.params.id)
+    axios.get('http://localhost:3001/employees' + this.props.match.params.id)
       .then((response) => {
         this.setState({
           firstName: response.data.firstName,
@@ -45,7 +45,7 @@ class EditEmployee extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     const { firstName, lastName, email, phone } = this.state;
-    axios.post('http://localhost:3001/employees/updateEmployee/' + this.props.match.params.id, {
+    axios.post('http://localhost:3001/updateuser/:id' + this.props.match.params.id, {
       firstName: firstName,
       lastName: lastName,
       email: email,

@@ -34,7 +34,7 @@ class AddUser extends Component {
     })
       .then((response) => {
         console.log(response);
-        this.props.history.push('/');
+        this.props.navigate.push('/');
       })
       .catch((error) => {
         console.log(error);

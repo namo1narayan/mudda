@@ -32,10 +32,10 @@ app.post("/register", async (req, res) => {
 
 // app.post('/register', function(req, res) {
 //   const employee = {
-//     Firstname: req.body.firstname,
-//     Lastname: req.body.lastname,
-//     Email: req.body.email,
-//     Mobile:req.body.mobile,
+//     firstname: req.body.firstname,
+//     lastname: req.body.lastname,
+//     email: req.body.email,
+//     mobile:req.body.mobile,
 //   };
 //   success.push(employee);
 //   console.log(success);

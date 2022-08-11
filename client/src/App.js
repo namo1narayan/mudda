@@ -19,9 +19,7 @@ function App() {
     <Routes>
       <Route  path="/" element={<Home/>} />
       <Route  path="/register" element={<AddUser/>} />
-       <Route path="/edit/:id" element={<Edit/>} />
-      {/* <Route exact path="/view/:id" component={Details} /> 
-      <Route path="*" element={<Navigate to="/"/>}/> */}
+       <Route path="/updateuser/:id" element={<Edit/>} />
       </Routes>
     </Router>
 
